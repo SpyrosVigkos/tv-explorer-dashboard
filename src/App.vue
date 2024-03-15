@@ -1,8 +1,4 @@
-<script setup lang="ts">
-import { getShowsByGenre } from "./ClientDomain/tvShowServices";
-
-console.log(getShowsByGenre("Drama"));
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div>
