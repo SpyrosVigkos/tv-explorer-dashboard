@@ -1,5 +1,10 @@
 import cilentTvMazeApi from "../apiClient/cilentTvMazeApi";
 
+export const getAllShows = async () => {
+  const { data: shows } = await cilentTvMazeApi.get(`/shows`);
+  return shows;
+};
+
 export const getSearchReuslts = async (genre: string) => {
   const { data: searchResults } = await cilentTvMazeApi.get(
     `/search/shows?q=${genre}`,
