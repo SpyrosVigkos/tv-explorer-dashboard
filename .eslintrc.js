@@ -14,9 +14,7 @@ module.exports = {
   },
   rules: {
     quotes: ["error", "double"],
-    // Override/add rules settings here, such as:
     "vue/no-unused-vars": "error",
     "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
-    // ...
   },
 };
