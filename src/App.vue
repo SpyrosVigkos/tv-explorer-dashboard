@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import HorizontalShowList from "./components/HorizontalShowList.vue";
+import HorizontalShowList from "./components/Lists/HorizontalShowList.vue";
+import TvExplorerContainer from "./components/Containers/TvExplorerContainer.vue";
+import Header from "./components/Template/Header/Header.vue";
+import Footer from "./components/Template/Footer/Footer.vue";
 import { useTvAllShows } from "./composables/useAllTvShows";
 import SearchComponent from "./components/SearchComponent.vue";
 import LoadingSpinner from "./components/LoadingSpinner.vue";
@@ -12,8 +15,7 @@ const { errorMessage, showErrorDialog, clearError } = useErrorHandling();
 
 <template>
   <div>
-    <h1 class="text-black underline">Tv Dashboard Coming soon</h1>
-
+    <Header />
     <SearchComponent />
     <LoadingSpinner v-if="loading" />
     <ErrorDialog
@@ -21,6 +23,9 @@ const { errorMessage, showErrorDialog, clearError } = useErrorHandling();
       :message="errorMessage"
       @close="clearError"
     />
-    <HorizontalShowList v-else :shows="shows" />
+    <TvExplorerContainer v-else>
+      <HorizontalShowList :shows="shows" />
+    </TvExplorerContainer>
+    <Footer />
   </div>
 </template>

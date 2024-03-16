@@ -1,0 +1,50 @@
+<svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 100 100"
+      class="h-8 w-8 mr-2 text-white"
+    >
+      <defs>
+        <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color: #4facfe; stop-opacity: 1" />
+          <stop offset="100%" style="stop-color: #00f2fe; stop-opacity: 1" />
+        </linearGradient>
+        <filter id="logo-shadow" x="-10%" y="0" width="130%" height="130%">
+          <feOffset result="offset" in="SourceAlpha" dx="0" dy="3" />
+          <feGaussianBlur result="blur" in="offset" stdDeviation="3" />
+          <feComposite
+            result="shadow"
+            in="blur"
+            in2="SourceAlpha"
+            operator="over"
+          />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.2 0"
+            in="shadow"
+            result="shadow"
+          />
+          <feMerge>
+            <feMergeNode in="shadow" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+      <rect
+        width="100"
+        height="100"
+        rx="20"
+        fill="url(#logo-gradient)"
+        filter="url(#logo-shadow)"
+      ></rect>
+      <text
+        x="50"
+        y="60"
+        font-size="30"
+        text-anchor="middle"
+        fill="#ffffff"
+        font-family="Arial, sans-serif"
+        font-weight="bold"
+      >
+        TV
+      </text>
+    </svg>

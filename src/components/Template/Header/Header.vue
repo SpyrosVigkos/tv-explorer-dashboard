@@ -1,0 +1,31 @@
+<script lang="ts">
+import { defineComponent } from "vue";
+import Logo from "./Logo.vue";
+import NavigationMenu from "./NavigationMenu.vue";
+
+export default defineComponent({
+  name: "ShowList",
+  components: {
+    Logo,
+    NavigationMenu,
+  },
+  data() {
+    return {
+      menuActive: false,
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.menuActive = !this.menuActive;
+    },
+    goHome() {},
+  },
+});
+</script>
+
+<template>
+  <header class="flex justify-between items-center p-4 bg-blue-800 text-white">
+    <Logo />
+    <NavigationMenu />
+  </header>
+</template>

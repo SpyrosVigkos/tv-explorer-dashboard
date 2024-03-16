@@ -1,8 +1,8 @@
 <template>
   <div
-    class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center"
+    class="fixed inset-0 bg-blue-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center"
   >
-    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+    <div class="relative bg-white rounded-lg shadow dark:bg-blue-700">
       <div class="p-6 text-center">
         <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
           Error

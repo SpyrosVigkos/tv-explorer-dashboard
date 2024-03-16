@@ -1,13 +1,11 @@
 <script lang="ts">
 import { PropType, defineComponent } from "vue";
-import ShowCard from "./Cards/ShowCard.vue";
-import { TvShow } from "../ClientDomain/interfaces";
+import { TvShow } from "../../ClientDomain/interfaces";
+import ShowCard from "../Cards/ShowCard.vue";
 
 export default defineComponent({
   name: "HorizontalShowList",
-  components: {
-    ShowCard,
-  },
+  components: { ShowCard },
   props: {
     shows: {
       type: Array as PropType<Array<TvShow>>,

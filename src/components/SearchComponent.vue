@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useSearchShows } from "../composables/useSearchShows";
-import ListShows from "./ListShows.vue";
+import ListShows from "./Lists/ListShows.vue";
 
 const { searchTerm, performSearch, searchResults } = useSearchShows();
 </script>

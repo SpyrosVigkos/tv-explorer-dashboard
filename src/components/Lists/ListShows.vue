@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import ShowCard from "./Cards/ShowCard.vue";
-import { TvShow } from "../ClientDomain/interfaces";
+import { TvShow } from "../../ClientDomain/interfaces";
+import ShowCard from "../Cards/ShowCard.vue";
 
 export default defineComponent({
   name: "ShowList",
@@ -28,3 +28,4 @@ export default defineComponent({
     </div>
   </div>
 </template>
+../../ClientDomain/interfaces
