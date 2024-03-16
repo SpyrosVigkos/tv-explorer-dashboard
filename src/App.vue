@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import HorizontalShowList from "./components/Lists/HorizontalShowList.vue";
 import TvExplorerContainer from "./components/Containers/TvExplorerContainer.vue";
 import Header from "./components/Template/Header/Header.vue";
 import Footer from "./components/Template/Footer/Footer.vue";
-import { useTvAllShows } from "./composables/useAllTvShows";
 import SearchComponent from "./components/SearchComponent.vue";
+import GenreTvShowList from "./components/Lists/GenreTvShowList.vue";
 import LoadingSpinner from "./components/LoadingSpinner.vue";
 import ErrorDialog from "./components/ErrorDialog.vue";
 import { useErrorHandling } from "./composables/useErrorHandling";
+import { useOrganizedShowsByGenre } from "./composables/useOrganizedShowsByGenre";
 
-const { shows, loading } = useTvAllShows();
+const { organizedShowsByGenre, loading } = useOrganizedShowsByGenre();
 const { errorMessage, showErrorDialog, clearError } = useErrorHandling();
 </script>
 
@@ -24,7 +24,7 @@ const { errorMessage, showErrorDialog, clearError } = useErrorHandling();
       @close="clearError"
     />
     <TvExplorerContainer v-else>
-      <HorizontalShowList :shows="shows" />
+      <GenreTvShowList :genreTvShowLists="organizedShowsByGenre" />
     </TvExplorerContainer>
     <Footer />
   </div>
