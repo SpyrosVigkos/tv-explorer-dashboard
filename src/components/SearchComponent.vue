@@ -3,7 +3,6 @@ import { useSearchShows } from "../composables/useSearchShows";
 import ListShows from "./ListShows.vue";
 
 const { searchTerm, performSearch, searchResults } = useSearchShows();
-console.log(searchResults);
 </script>
 
 <template>

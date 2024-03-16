@@ -1,12 +1,14 @@
 import { ref } from "vue";
 import { getSearchResults } from "../ClientDomain/tvShowServices";
 import { TvShow } from "../ClientDomain/interfaces";
+import { useErrorHandling } from "./useErrorHandling";
 
 export function useSearchShows() {
   const searchTerm = ref("");
   const searchResults = ref<Array<TvShow>>([]);
   const isLoading = ref(false);
-  const error = ref<Error | null>(null);
+
+  const { setError } = useErrorHandling();
 
   const performSearch = async () => {
     if (!searchTerm.value) {
@@ -23,7 +25,7 @@ export function useSearchShows() {
         searchResults.value = [];
       }
     } catch (e) {
-      error.value = e as Error;
+      setError((e as Error).message);
     } finally {
       isLoading.value = false;
     }
@@ -33,7 +35,6 @@ export function useSearchShows() {
     searchTerm,
     searchResults,
     isLoading,
-    error,
     performSearch,
   };
 }
