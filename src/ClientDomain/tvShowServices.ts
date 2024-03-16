@@ -5,9 +5,9 @@ export const getAllShows = async () => {
   return shows;
 };
 
-export const getSearchReuslts = async (genre: string) => {
+export const getSearchResults = async (input: string) => {
   const { data: searchResults } = await cilentTvMazeApi.get(
-    `/search/shows?q=${genre}`,
+    `/search/shows?q=${input}`,
   );
   return searchResults;
 };

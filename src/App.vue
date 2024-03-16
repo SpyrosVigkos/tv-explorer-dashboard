@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import ListShows from "./components/ListShows.vue";
-import { useTvShows } from "./composables/useAllTvShows";
+import { useTvAllShows } from "./composables/useAllTvShows";
+import SearchComponent from "./components/SearchComponent.vue";
 
-const { shows, loading, error } = useTvShows();
+const { shows, loading, error } = useTvAllShows();
 </script>
 
 <template>
   <div>
     <h1 class="text-black underline">Tv Dashboard Coming soon</h1>
+
+    <SearchComponent />
     <div v-if="loading">Loading...</div>
     <div v-else-if="error">Error: {{ error.message }}</div>
     <div v-else>
