@@ -14,7 +14,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+  <div class="bg-white shadow-lg rounded-lg min-w-max overflow-hidden">
     <img
       :src="show.image?.original"
       class="w-full h-64 object-cover"

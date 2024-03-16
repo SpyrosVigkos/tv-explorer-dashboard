@@ -1,10 +1,10 @@
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { PropType, defineComponent } from "vue";
 import ShowCard from "./Cards/ShowCard.vue";
 import { TvShow } from "../ClientDomain/interfaces";
 
 export default defineComponent({
-  name: "ShowList",
+  name: "HorizontalShowList",
   components: {
     ShowCard,
   },
@@ -18,13 +18,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="flex flex-wrap -mx-2">
-    <div
-      class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-2 mb-4"
-      v-for="show in shows"
-      :key="show.id"
-    >
-      <ShowCard :show="show" />
-    </div>
+  <div class="scrollbar flex overflow-x-auto py-2 space-x-4 overflow-auto">
+    <ShowCard v-for="show in shows" :key="show.id" :show="show" />
   </div>
 </template>

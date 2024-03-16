@@ -1,0 +1,20 @@
+@layer utilities {
+  /* For Webkit Browsers */
+  .scrollbar::-webkit-scrollbar {
+    @apply w-3; /* Scrollbar width */
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-blue-500 rounded-full; /* Scrollbar thumb color and fully rounded corners */
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    @apply bg-blue-100 rounded-full; /* Scrollbar track color and fully rounded corners */
+  }
+
+  /* For Firefox */
+  .scrollbar {
+    scrollbar-color: theme("colors.blue.500") theme("colors.blue.100");
+    scrollbar-width: auto;
+  }
+}

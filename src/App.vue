@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ListShows from "./components/ListShows.vue";
+import HorizontalShowList from "./components/HorizontalShowList.vue";
 import { useTvAllShows } from "./composables/useAllTvShows";
 import SearchComponent from "./components/SearchComponent.vue";
 import LoadingSpinner from "./components/LoadingSpinner.vue";
@@ -13,6 +13,7 @@ const { errorMessage, showErrorDialog, clearError } = useErrorHandling();
 <template>
   <div>
     <h1 class="text-black underline">Tv Dashboard Coming soon</h1>
+
     <SearchComponent />
     <LoadingSpinner v-if="loading" />
     <ErrorDialog
@@ -20,6 +21,6 @@ const { errorMessage, showErrorDialog, clearError } = useErrorHandling();
       :message="errorMessage"
       @close="clearError"
     />
-    <ListShows v-else :shows="shows" />
+    <HorizontalShowList v-else :shows="shows" />
   </div>
 </template>
