@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "./pages/HomePage.vue";
 import SearchPage from "./pages/SearchPage.vue";
 import ShowDetailsPage from "./pages/ShowDetailsPage.vue";
+import WatchListPage from "./pages/WatchListPage.vue";
 
 const routes = [
   {
@@ -20,11 +21,11 @@ const routes = [
     component: ShowDetailsPage,
     props: true, // This allows the id parameter to be passed as a prop to the component
   },
-  // {
-  //   path: "/watch-list",
-  //   name: "WatchList",
-  //   component: WatchList,
-  // },
+  {
+    path: "/watchlist",
+    name: "WatchList",
+    component: WatchListPage,
+  },
 ];
 
 const router = createRouter({

@@ -25,6 +25,11 @@ export default {
           >Search</router-link
         >
       </li>
+      <li>
+        <router-link to="/watchlist" class="hover:bg-gray-700 p-2 rounded"
+          >My Watchlist</router-link
+        >
+      </li>
     </ul>
   </nav>
 </template>

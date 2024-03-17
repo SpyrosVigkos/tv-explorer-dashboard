@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
 import { TvShow } from "../ClientDomain/interfaces";
 import { useWatchList } from "../composables/useWatchList";
+
 defineProps<{
   show: TvShow;
 }>();

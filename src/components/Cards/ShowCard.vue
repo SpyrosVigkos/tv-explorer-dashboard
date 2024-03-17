@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
 import { TvShow } from "../../ClientDomain/interfaces";
 import { useNavigationLinks } from "../../composables/useNavigationLinks";
 import { useWatchList } from "../../composables/useWatchList";
