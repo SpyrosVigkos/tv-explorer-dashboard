@@ -1,19 +1,13 @@
-import { ref, watchEffect, onMounted, reactive, toRefs, computed } from "vue";
-import { getShowDetails } from "../ClientDomain/tvShowServices"; // Adjust the import path as needed
+import { watchEffect, onMounted, toRefs, computed } from "vue";
+import { getShowDetails } from "../ClientDomain/tvShowServices";
+import {
+  watchListEffect,
+  watchListIds,
+  watchListShows,
+} from "../persiStance/watchListState";
 
-function getInitialWatchList() {
-  const savedList = localStorage.getItem("watchList");
-  return savedList !== null ? JSON.parse(savedList) : ([] as Array<number>);
-}
+watchEffect(watchListEffect);
 
-const watchListIds = ref(new Set(getInitialWatchList()));
-const watchListShows = reactive(new Map());
-
-watchEffect(() => {
-  localStorage.setItem("watchList", JSON.stringify([...watchListIds.value]));
-});
-
-// Fetch and update show details for all shows in the watchlist
 async function fetchWatchListDetails() {
   for (let id of watchListIds.value) {
     if (!watchListShows.has(id)) {
@@ -48,10 +42,8 @@ export function useWatchList() {
     }
   }
 
-  // Use onMounted to fetch details when the component using this composable mounts
   onMounted(fetchWatchListDetails);
 
-  // A computed property to return the shows' details as an array
   const watchListDetails = computed(() => Array.from(watchListShows.values()));
 
   return {
