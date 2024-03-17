@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useSearchShows } from "../composables/useSearchShows";
-import ShowList from "./Lists/ShowList.vue";
+import HorizontalShowList from "./Lists/HorizontalShowList.vue";
 import ShowsExplorerContainer from "./Containers/ShowsExplorerContainer.vue";
 
 const { searchTerm, performSearch, searchResults } = useSearchShows();
@@ -23,6 +23,6 @@ const { searchTerm, performSearch, searchResults } = useSearchShows();
     </button>
   </div>
   <ShowsExplorerContainer>
-    <ShowList :shows="searchResults" />
+    <HorizontalShowList :shows="searchResults" />
   </ShowsExplorerContainer>
 </template>

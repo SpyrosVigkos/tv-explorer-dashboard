@@ -28,4 +28,3 @@ export default defineComponent({
     </div>
   </div>
 </template>
-../../ClientDomain/interfaces
