@@ -1,21 +1,13 @@
 import { ref, onMounted, computed, watch } from "vue";
 import { TvShow } from "../ClientDomain/interfaces";
 import { getAllShows } from "../ClientDomain/tvShowServices";
+import sortShowsByRating from "../functions/sortShowsByRating";
 
 export function useSortedShowsByRating() {
   const allShows = ref<TvShow[]>([]);
   const topRatedShows = ref<TvShow[]>([]);
   const loading = ref(true);
   const numberOfTopShows = ref(10);
-
-  // Function to sort shows by rating
-  const sortShowsByRating = (showsToSort: TvShow[]): TvShow[] => {
-    return showsToSort.sort((a, b) => {
-      const ratingA = a.rating?.average || 0;
-      const ratingB = b.rating?.average || 0;
-      return ratingB - ratingA;
-    });
-  };
 
   // Function to set top rated shows based on numberOfTopShows
   const setTopRatedShows = () => {

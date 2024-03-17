@@ -1,4 +1,5 @@
 import { TvShow, GenreTvShowList } from "../ClientDomain/interfaces";
+import sortShowsByRating from "./sortShowsByRating";
 
 export function organizeShowsByGenre(
   tvShows: Array<TvShow>,
@@ -31,7 +32,7 @@ export function organizeShowsByGenre(
     genreShowMap,
   ).map((genre) => ({
     genre: genre,
-    tvShows: genreShowMap[genre],
+    tvShows: sortShowsByRating(genreShowMap[genre]),
   }));
 
   return genreTvShowLists;
