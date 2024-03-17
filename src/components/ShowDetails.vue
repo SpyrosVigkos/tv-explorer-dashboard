@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
 import { TvShow } from "../ClientDomain/interfaces";
+import { useWatchList } from "../composables/useWatchList";
 defineProps<{
   show: TvShow;
 }>();
+const { toggleWatchList, isInWatchList } = useWatchList();
 </script>
 
 <template>
@@ -18,6 +20,16 @@ defineProps<{
         <div class="p-6 flex flex-col justify-between">
           <div>
             <h1 class="text-3xl font-bold mb-2">{{ show.name }}</h1>
+            <button
+              @click="toggleWatchList(show.id)"
+              class="inline-block bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-700 transition-colors"
+            >
+              {{
+                isInWatchList(show.id)
+                  ? "Remove from Watch List"
+                  : "Add to Watch List"
+              }}
+            </button>
             <p class="text-xl text-gray-600">
               Rating: {{ show.rating.average || "N/A" }}
             </p>

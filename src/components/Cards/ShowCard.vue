@@ -1,24 +1,15 @@
-<script lang="ts">
-import { defineComponent, PropType } from "vue";
+<script setup lang="ts">
+import { defineProps } from "vue";
 import { TvShow } from "../../ClientDomain/interfaces";
 import { useNavigationLinks } from "../../composables/useNavigationLinks";
+import { useWatchList } from "../../composables/useWatchList";
 
-export default defineComponent({
-  name: "ShowCard",
-  props: {
-    show: {
-      type: Object as PropType<TvShow>,
-      required: true,
-    },
-  },
-  setup() {
-    const { navigateToShowDetails } = useNavigationLinks();
+defineProps<{
+  show: TvShow;
+}>();
 
-    return {
-      navigateToShowDetails,
-    };
-  },
-});
+const { navigateToShowDetails } = useNavigationLinks();
+const { isInWatchList, toggleWatchList } = useWatchList();
 </script>
 
 <template>
@@ -32,7 +23,18 @@ export default defineComponent({
       :alt="show.name"
     />
     <div class="p-4">
-      <h3 class="text-lg font-bold">{{ show.name }}</h3>
+      <h3 class="text-lg font-bold">
+        {{ show.name }}
+        <button
+          @click.stop="toggleWatchList(show.id)"
+          class="text-xs text-white bg-green-500 hover:bg-green-700 p-1 rounded"
+          :class="{ 'bg-red-500 hover:bg-red-700': isInWatchList(show.id) }"
+          title="Toggle Watch List"
+        >
+          {{ isInWatchList(show.id) ? "−" : "+" }}
+        </button>
+      </h3>
+
       <p class="text-sm text-gray-600">{{ show.genres.join(", ") }}</p>
       <div class="flex justify-between items-center mt-4">
         <span class="text-sm">{{ show.rating.average || "N/A" }}</span>
