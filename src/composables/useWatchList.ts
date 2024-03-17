@@ -1,4 +1,4 @@
-import { watchEffect, onMounted, toRefs, computed } from "vue";
+import { watchEffect, onMounted, computed } from "vue";
 import { getShowDetails } from "../ClientDomain/tvShowServices";
 import {
   watchListEffect,
@@ -47,10 +47,7 @@ export function useWatchList() {
   const watchListDetails = computed(() => Array.from(watchListShows.values()));
 
   return {
-    ...toRefs(watchListIds), // Convert reactive refs for use in the template
     watchListDetails,
-    addToWatchList,
-    removeFromWatchList,
     isInWatchList,
     toggleWatchList,
   };
