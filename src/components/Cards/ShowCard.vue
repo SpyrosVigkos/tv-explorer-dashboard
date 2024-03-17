@@ -1,6 +1,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { TvShow } from "../../ClientDomain/interfaces";
+import { useNavigationLinks } from "../../composables/useNavigationLinks";
 
 export default defineComponent({
   name: "ShowCard",
@@ -10,11 +11,21 @@ export default defineComponent({
       required: true,
     },
   },
+  setup() {
+    const { navigateToShowDetails } = useNavigationLinks();
+
+    return {
+      navigateToShowDetails,
+    };
+  },
 });
 </script>
 
 <template>
-  <div class="bg-white shadow-lg rounded-lg min-w-max overflow-hidden">
+  <div
+    class="bg-white shadow-lg rounded-lg min-w-max overflow-hidden cursor-pointer"
+    @click="navigateToShowDetails(show.id)"
+  >
     <img
       :src="show.image?.original"
       class="w-full min-w-56 h-64 object-cover"

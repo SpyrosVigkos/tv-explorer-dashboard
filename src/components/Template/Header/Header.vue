@@ -9,17 +9,6 @@ export default defineComponent({
     Logo,
     NavigationMenu,
   },
-  data() {
-    return {
-      menuActive: false,
-    };
-  },
-  methods: {
-    toggleMenu() {
-      this.menuActive = !this.menuActive;
-    },
-    goHome() {},
-  },
 });
 </script>
 

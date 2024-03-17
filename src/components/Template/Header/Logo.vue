@@ -1,9 +1,10 @@
-<script lang="ts">
-export default {
-  methods: {
-    goHome() {},
-  },
-};
+<script setup lang="ts">
+import { useNavigationLinks } from "../../../composables/useNavigationLinks";
+
+const { navigate } = useNavigationLinks();
+function goHome() {
+  navigate("/");
+}
 </script>
 
 <template>

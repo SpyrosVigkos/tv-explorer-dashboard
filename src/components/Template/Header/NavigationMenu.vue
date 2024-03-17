@@ -21,11 +21,8 @@ export default {
         <router-link to="/" class="hover:text-gray-300">Home</router-link>
       </li>
       <li>
-        <router-link to="/about" class="hover:text-gray-300">About</router-link>
-      </li>
-      <li>
-        <router-link to="/contact" class="hover:text-gray-300"
-          >Contact</router-link
+        <router-link to="/Search" class="hover:text-gray-300"
+          >Search</router-link
         >
       </li>
     </ul>
