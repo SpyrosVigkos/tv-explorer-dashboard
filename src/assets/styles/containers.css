@@ -1,0 +1,19 @@
+@layer utilities {
+  .main-container {
+    @apply max-w-screen-xl mx-auto my-6 p-4 sm:p-6 lg:p-8;
+  }
+
+  .header-container {
+    @apply max-w-screen-xl mx-auto flex justify-between items-center;
+  }
+  .menu-active {
+    @apply fixed z-30 top-0 left-0 w-5/6 max-w-sm bg-blue-600 h-full shadow-md transition-transform duration-300 ease-in-out transform translate-x-0;
+  }
+  .menu-no-active {
+    @apply fixed z-30 top-0 left-0 w-5/6 max-w-sm bg-blue-600 h-full shadow-md transition-transform duration-300 ease-in-out transform -translate-x-full;
+  }
+
+  .menu-visible {
+    @apply fixed inset-0 bg-gray-600 bg-opacity-75 z-20;
+  }
+}

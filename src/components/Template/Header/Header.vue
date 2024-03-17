@@ -13,8 +13,10 @@ export default defineComponent({
 </script>
 
 <template>
-  <header class="flex justify-between items-center p-4 bg-blue-800 text-white">
-    <Logo />
-    <NavigationMenu />
+  <header class="p-4 bg-blue-800 text-white">
+    <div class="header-container">
+      <Logo />
+      <NavigationMenu />
+    </div>
   </header>
 </template>
