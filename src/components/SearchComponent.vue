@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { useSearchShows } from "../composables/useSearchShows";
-import HorizontalShowList from "./Lists/HorizontalShowList.vue";
-import ShowsExplorerContainer from "./Containers/ShowsExplorerContainer.vue";
+import LoadingSpinner from "./LoadingSpinner.vue";
+import SearchVerticalList from "./Lists/SearchVerticalList.vue";
 
-const { searchTerm, performSearch, searchResults } = useSearchShows();
+const { searchTerm, performSearch, searchResults, isLoading } =
+  useSearchShows();
 </script>
 
 <template>
@@ -22,7 +23,8 @@ const { searchTerm, performSearch, searchResults } = useSearchShows();
       Search
     </button>
   </div>
-  <ShowsExplorerContainer>
-    <HorizontalShowList :shows="searchResults" />
-  </ShowsExplorerContainer>
+  <LoadingSpinner v-if="isLoading" />
+  <div class="mx-auto max-w-md" v-else>
+    <SearchVerticalList :shows="searchResults" />
+  </div>
 </template>

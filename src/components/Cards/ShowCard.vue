@@ -33,7 +33,6 @@ const { isInWatchList, toggleWatchList } = useWatchList();
           {{ isInWatchList(show.id) ? "−" : "+" }}
         </button>
       </h3>
-
       <p class="text-sm text-gray-600">{{ show.genres.join(", ") }}</p>
       <div class="flex justify-between items-center mt-4">
         <span class="text-sm">{{ show.rating.average || "N/A" }}</span>
