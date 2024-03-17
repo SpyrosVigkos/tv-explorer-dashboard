@@ -21,11 +21,11 @@ const { toggleWatchList, isInWatchList } = useWatchList();
           <div>
             <h1 class="text-3xl font-bold mb-2">{{ show.name }}</h1>
             <button
-              @click="toggleWatchList(show.id)"
+              @click="toggleWatchList(show)"
               class="inline-block bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-700 transition-colors"
             >
               {{
-                isInWatchList(show.id)
+                isInWatchList(show)
                   ? "Remove from Watch List"
                   : "Add to Watch List"
               }}

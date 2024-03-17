@@ -1,8 +1,10 @@
-export function getInitialWatchList(): Array<number> {
+import { TvShow } from "../ClientDomain/interfaces";
+
+export function getWatchList(): Array<TvShow> {
   const savedList = localStorage.getItem("watchList");
-  return savedList !== null ? JSON.parse(savedList) : [];
+  return savedList ? JSON.parse(savedList) : [];
 }
 
-export function saveWatchList(watchList: Iterable<number>): void {
-  localStorage.setItem("watchList", JSON.stringify([...watchList]));
+export function saveWatchList(watchList: Array<TvShow>): void {
+  window.localStorage.setItem("watchList", JSON.stringify(watchList));
 }

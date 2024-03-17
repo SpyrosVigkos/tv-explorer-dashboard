@@ -1,53 +1,36 @@
-import { watchEffect, onMounted, computed } from "vue";
-import { getShowDetails } from "../ClientDomain/tvShowServices";
-import {
-  watchListEffect,
-  watchListIds,
-  watchListShows,
-} from "../persiStance/watchListState";
-
-watchEffect(watchListEffect);
-
-async function fetchWatchListDetails() {
-  for (let id of watchListIds.value) {
-    if (!watchListShows.has(id)) {
-      const showDetails = await getShowDetails(id);
-      watchListShows.set(id, showDetails);
-    }
-  }
-}
+import { onMounted, ref } from "vue";
+import { TvShow } from "../ClientDomain/interfaces";
+import { getWatchList, saveWatchList } from "../persiStance/localStorageUtils";
 
 export function useWatchList() {
-  function addToWatchList(showId: number) {
-    watchListIds.value.add(showId);
-    getShowDetails(showId).then((showDetails) => {
-      watchListShows.set(showId, showDetails);
-    });
+  const watchList = ref<TvShow[]>([]);
+
+  function addToWatchList(shows: TvShow[]) {
+    saveWatchList(shows);
+    watchList.value = shows;
   }
 
-  function removeFromWatchList(showId: number) {
-    watchListIds.value.delete(showId);
-    watchListShows.delete(showId);
+  function isInWatchList(show: TvShow) {
+    return watchList.value.some(({ id }) => show.id === id);
   }
 
-  function isInWatchList(showId: number) {
-    return watchListIds.value.has(showId);
-  }
-
-  function toggleWatchList(showId: number) {
-    if (isInWatchList(showId)) {
-      removeFromWatchList(showId);
+  function toggleWatchList(show: TvShow) {
+    if (isInWatchList(show)) {
+      // Remove the show from the watch list
+      watchList.value = watchList.value.filter(({ id }) => id !== show.id);
     } else {
-      addToWatchList(showId);
+      const previous = getWatchList();
+      addToWatchList([...previous, show]);
     }
+    saveWatchList(watchList.value); // Save the updated watch list
   }
 
-  onMounted(fetchWatchListDetails);
-
-  const watchListDetails = computed(() => Array.from(watchListShows.values()));
+  onMounted(() => {
+    watchList.value = getWatchList();
+  });
 
   return {
-    watchListDetails,
+    watchList,
     isInWatchList,
     toggleWatchList,
   };
