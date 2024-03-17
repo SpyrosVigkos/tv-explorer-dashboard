@@ -1,3 +1,15 @@
+<script setup lang="ts">
+defineProps({
+  message: String,
+});
+
+const emit = defineEmits(["close"]);
+
+const closeDialog = () => {
+  emit("close");
+};
+</script>
+
 <template>
   <div
     class="fixed inset-0 bg-blue-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center"
@@ -19,15 +31,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-defineProps({
-  message: String,
-});
-
-const emit = defineEmits(["close"]);
-
-const closeDialog = () => {
-  emit("close");
-};
-</script>

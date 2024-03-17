@@ -3,6 +3,7 @@ import { useSortedShowsByRating } from "../../composables/useSortedShowsByRating
 import ShowsExplorerContainer from "../Containers/ShowsExplorerContainer.vue";
 import LoadingSpinner from "../LoadingSpinner.vue";
 import HorizontalShowList from "./HorizontalShowList.vue";
+
 const { displayedShows, numberOfTopShows, loading } = useSortedShowsByRating();
 </script>
 

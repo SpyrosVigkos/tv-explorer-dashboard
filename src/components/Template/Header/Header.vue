@@ -4,7 +4,7 @@ import Logo from "./Logo.vue";
 import NavigationMenu from "./NavigationMenu.vue";
 
 export default defineComponent({
-  name: "ShowList",
+  name: "Header",
   components: {
     Logo,
     NavigationMenu,
