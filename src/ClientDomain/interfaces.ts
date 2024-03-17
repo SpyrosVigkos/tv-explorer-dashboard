@@ -33,7 +33,7 @@ export type TvShow = {
   officialSite: string | null;
   schedule: {
     time: string;
-    days: string;
+    days: Array<string>;
   } | null;
   rating: { average: number };
   weight: number | null;

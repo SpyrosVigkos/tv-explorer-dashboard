@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "./pages/HomePage.vue";
 import SearchPage from "./pages/SearchPage.vue";
-import ShowDetails from "./pages/ShowDetails.vue";
+import ShowDetailsPage from "./pages/ShowDetailsPage.vue";
 
 const routes = [
   {
@@ -17,7 +17,7 @@ const routes = [
   {
     path: "/show/:id", // :id is a dynamic segment that will match any show's ID
     name: "ShowDetails",
-    component: ShowDetails,
+    component: ShowDetailsPage,
     props: true, // This allows the id parameter to be passed as a prop to the component
   },
   // {
