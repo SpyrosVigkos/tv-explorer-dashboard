@@ -17,8 +17,8 @@ export default defineComponent({
   <div class="bg-white shadow-lg rounded-lg min-w-max overflow-hidden">
     <img
       :src="show.image?.original"
-      class="w-full h-64 object-cover"
-      alt="Show Image"
+      class="w-full min-w-56 h-64 object-cover"
+      :alt="show.name"
     />
     <div class="p-4">
       <h3 class="text-lg font-bold">{{ show.name }}</h3>

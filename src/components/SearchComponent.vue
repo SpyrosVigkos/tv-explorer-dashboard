@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useSearchShows } from "../composables/useSearchShows";
-import ListShows from "./Lists/ListShows.vue";
+import ShowList from "./Lists/ShowList.vue";
+import TvExplorerContainer from "./Containers/TvExplorerContainer.vue";
 
 const { searchTerm, performSearch, searchResults } = useSearchShows();
 </script>
@@ -21,7 +22,8 @@ const { searchTerm, performSearch, searchResults } = useSearchShows();
       Search
     </button>
   </div>
-  <div>
-    <ListShows :shows="searchResults" />
-  </div>
+  <TvExplorerContainer>
+    <ShowList :shows="searchResults" />
+  </TvExplorerContainer>
 </template>
+./Lists/ShowList.vue
