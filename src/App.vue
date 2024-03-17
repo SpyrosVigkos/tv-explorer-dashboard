@@ -10,6 +10,7 @@ import { useErrorHandling } from "./composables/useErrorHandling";
 import { useOrganizedShowsByGenre } from "./composables/useOrganizedShowsByGenre";
 import HighLightContainer from "./components/Containers/HighLightContainer.vue";
 import TopRatedList from "./components/Lists/TopRatedList.vue";
+import IntroSection from "./components/Template/IntroSection.vue";
 
 const { organizedShowsByGenre, loading } = useOrganizedShowsByGenre();
 const { errorMessage, showErrorDialog, clearError } = useErrorHandling();
@@ -18,7 +19,9 @@ const { errorMessage, showErrorDialog, clearError } = useErrorHandling();
 <template>
   <div>
     <Header />
-    <SearchComponent />
+    <IntroSection>
+      <SearchComponent />
+    </IntroSection>
     <LoadingSpinner v-if="loading" />
     <ErrorDialog
       v-if="showErrorDialog"
