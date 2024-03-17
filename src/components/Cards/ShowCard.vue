@@ -17,9 +17,10 @@ const { isInWatchList, toggleWatchList } = useWatchList();
     @click="navigateToShowDetails(show.id)"
   >
     <img
-      :src="show.image?.original"
+      :src="show.image?.medium"
       class="w-full min-w-56 h-64 object-cover"
       :alt="show.name"
+      loading="lazy"
     />
     <div class="p-4">
       <h3 class="text-lg font-bold">

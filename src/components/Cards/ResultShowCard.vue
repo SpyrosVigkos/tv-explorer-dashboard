@@ -15,9 +15,10 @@ const { navigateToShowDetails } = useNavigationLinks();
     @click="navigateToShowDetails(show.id)"
   >
     <img
-      :src="show.image?.original"
+      :src="show.image?.medium"
       class="w-20 h-20 object-cover"
       :alt="show.name"
+      loading="lazy"
     />
     <div class="p-4">
       <h3 class="text-lg font-bold">

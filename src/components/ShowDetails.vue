@@ -16,6 +16,7 @@ const { toggleWatchList, isInWatchList } = useWatchList();
           :src="show.image?.original"
           class="w-full md:w-1/2 lg:w-1/3 object-cover max-h-64 sm:max-h-96 md:max-h-full"
           :alt="show.name"
+          loading="lazy"
         />
         <div class="p-6 flex flex-col justify-between">
           <div>
