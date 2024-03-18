@@ -1,18 +1,100 @@
-# Vue 3 + TypeScript + Vite
+# TV Explorer Dashboard
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Introduction
 
-## Recommended IDE Setup
+TV Explorer Dashboard is a Vue.js application that leverages the TVmaze API to showcase popular TV shows filtered by genres. The application allows users to browse shows, view details for a specific show, and search for shows by name. This project demonstrates clean, reusable code and follows frontend best practices.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Features
 
-## Type Support For `.vue` Imports in TS
+- Display TV shows in horizontally scrollable lists categorized by genre.
+- Show details page for each TV show.
+- Search functionality for finding specific TV shows.
+- Add to Watchlist Functionallity
+- Responsive and mobile-friendly design.
+- Simple yet eye-catching UI.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+## Getting Started
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+### Prerequisites
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+- Node.js (version used during development: `v20.11.1`)
+- Yarn (version used during development: `1.22.22`)
+
+### Installation
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/SpyrosVigkos/tv-explorer-dashboard.git
+   ```
+2. Navigate to the cloned repository
+   ```
+   cd tv-explorer-dashboard
+   ```
+3. Install the dependencies using Yarn:
+   ```
+   yarn install
+   ```
+
+### Running the Application
+
+To start the development server, run:
+
+```
+yarn dev
+```
+
+The application will be available at the default Vite port or a randomly assigned available port. Check your terminal for the local server address.
+
+### Building for Production
+
+To build the app for production, run:
+
+```
+yarn build
+```
+
+The build artifacts will be stored in the dist/ directory.
+
+### Previewing the Production Build
+
+To preview the production build, run:
+
+```
+yarn test
+```
+
+For test watching, run:
+
+```
+yarn test:watch
+```
+
+## Technologies Used
+
+- Vue.js 3
+- Vue Router for routing
+- Axios for promise-based HTTP requests
+- Tailwind CSS for styling
+- Vite as a build tool and development server
+- Vitest for unit testing
+- TypeScript for static type checking
+
+## Architectural Decisions
+
+The application is structured with maintainability and scalability in mind. Vue.js was chosen for its reactive data binding and component-based architecture. Vue Router manages navigation, and Axios handles network requests efficiently. The UI is crafted with Tailwind CSS for rapid development and a customizable design system. TypeScript is utilized to enhance code quality and developer experience.
+
+Yarn was chosen over npm as the package manager because of its reliable caching, consistent `node_modules` structure, and superior dependency resolution algorithms. These features of Yarn contribute to faster install times and less potential for errors.
+
+## Contributing
+
+Feel free to fork the repository and submit pull requests. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## Contact
+
+Spyros Vigkos - [spiros.vigos@gmail.com](mailto:spiros.vigos@gmail.com)
+
+Project Link: [https://github.com/SpyrosVigkos/tv-explorer-dashboard](https://github.com/SpyrosVigkos/tv-explorer-dashboard)
