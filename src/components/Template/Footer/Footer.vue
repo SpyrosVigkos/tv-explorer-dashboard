@@ -7,7 +7,7 @@ function currentYear() {
 <template>
   <footer class="flex justify-between items-center p-4 bg-blue-700 text-white">
     <div>
-      &copy; {{ currentYear }} TV Explorer Dashboard. All rights reserved.
+      &copy; {{ currentYear() }} TV Explorer Dashboard. All rights reserved.
     </div>
   </footer>
 </template>
