@@ -1,15 +1,6 @@
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
 import Logo from "./Logo.vue";
 import NavigationMenu from "./NavigationMenu.vue";
-
-export default defineComponent({
-  name: "Header",
-  components: {
-    Logo,
-    NavigationMenu,
-  },
-});
 </script>
 
 <template>

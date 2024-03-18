@@ -1,20 +1,10 @@
-<script lang="ts">
-import { defineComponent, PropType } from "vue";
+<script setup lang="ts">
 import HorizontalShowList from "./HorizontalShowList.vue";
 import { GenreTvShowList } from "../../ClientDomain/interfaces";
 
-export default defineComponent({
-  name: "GenreTvShowListDisplay",
-  components: {
-    HorizontalShowList,
-  },
-  props: {
-    genreTvShowLists: {
-      type: Array as PropType<Array<GenreTvShowList>>,
-      required: true,
-    },
-  },
-});
+defineProps<{
+  genreTvShowLists: Array<GenreTvShowList>;
+}>();
 </script>
 
 <template>

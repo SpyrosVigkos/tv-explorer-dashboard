@@ -1,20 +1,10 @@
-<script lang="ts">
-import { defineComponent, PropType } from "vue";
+<script setup lang="ts">
 import { TvShow } from "../../ClientDomain/interfaces";
 import ShowCard from "../Cards/ShowCard.vue";
 
-export default defineComponent({
-  name: "ShowList",
-  components: {
-    ShowCard,
-  },
-  props: {
-    shows: {
-      type: Array as PropType<Array<TvShow>>,
-      required: true,
-    },
-  },
-});
+defineProps<{
+  shows: Array<TvShow>;
+}>();
 </script>
 
 <template>
