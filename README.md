@@ -34,6 +34,7 @@ TV Explorer Dashboard is a Vue.js application that leverages the TVmaze API to s
    ```
    yarn install
    ```
+4. Create a `.env.local` file based on the `.env.template` and populate it with the necessary API endpoints and other environment-specific values. For the current version you need only the base URL of the TVmaze API
 
 ### Running the Application
 
