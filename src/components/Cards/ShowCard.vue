@@ -26,10 +26,10 @@ const { isInWatchList, toggleWatchList } = useWatchList();
       <h3 class="text-lg font-bold">
         {{ show.name }}
         <button
-          @click.stop="toggleWatchList(show)"
           class="text-xs text-white bg-green-500 hover:bg-green-700 p-1 rounded"
           :class="{ 'bg-red-500 hover:bg-red-700': isInWatchList(show) }"
           title="Toggle Watch List"
+          @click.stop="toggleWatchList(show)"
         >
           {{ isInWatchList(show) ? "−" : "+" }}
         </button>

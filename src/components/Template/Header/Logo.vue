@@ -8,7 +8,7 @@ function goHome() {
 </script>
 
 <template>
-  <div @click="goHome" class="h-8 cursor-pointer flex items-center">
+  <div class="h-8 cursor-pointer flex items-center" @click="goHome">
     <img
       src="/src/assets/img/TvExplorerLogoIcon.svg"
       alt="logo"

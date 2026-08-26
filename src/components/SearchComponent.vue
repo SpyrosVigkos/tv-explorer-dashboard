@@ -10,10 +10,10 @@ const { searchTerm, performSearch, searchResults, isLoading } =
 <template>
   <div class="flex items-center max-w-md mx-auto mt-10">
     <input
+      v-model="searchTerm"
       type="text"
       class="flex-1 p-2 border border-gray-300 rounded-l-lg focus:outline-none"
       placeholder="Search TV shows..."
-      v-model="searchTerm"
       @input="performSearch"
     />
     <button
@@ -24,7 +24,7 @@ const { searchTerm, performSearch, searchResults, isLoading } =
     </button>
   </div>
   <LoadingSpinner v-if="isLoading" />
-  <div class="mx-auto max-w-md" v-else>
+  <div v-else class="mx-auto max-w-md">
     <SearchVerticalList :shows="searchResults" />
   </div>
 </template>
