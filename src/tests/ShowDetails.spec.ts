@@ -67,4 +67,22 @@ describe("ShowDetails", () => {
     expect(wrapper.html()).toContain(mockShow.summary);
     expect(wrapper.find("a").attributes("href")).toBe(mockShow.url);
   });
+
+  it("strips unsafe markup from the summary before rendering it", () => {
+    const wrapper = mount(ShowDetails, {
+      props: {
+        show: {
+          ...mockShow,
+          summary:
+            '<p>Safe text.</p><script>window.pwned = true;<\/script>' +
+            '<img src="x" onerror="window.pwned = true" />',
+        },
+      },
+    });
+
+    const summary = wrapper.find(".prose").html();
+    expect(summary).toContain("Safe text.");
+    expect(summary).not.toContain("<script");
+    expect(summary).not.toContain("onerror");
+  });
 });

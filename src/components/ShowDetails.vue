@@ -1,11 +1,14 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import { TvShow } from "../ClientDomain/interfaces";
 import { useWatchList } from "../composables/useWatchList";
+import sanitizeSummary from "../functions/sanitizeSummary";
 
-defineProps<{
+const props = defineProps<{
   show: TvShow;
 }>();
 const { toggleWatchList, isInWatchList } = useWatchList();
+const sanitizedSummary = computed(() => sanitizeSummary(props.show.summary));
 </script>
 
 <template>
@@ -44,7 +47,7 @@ const { toggleWatchList, isInWatchList } = useWatchList();
               </span>
             </div>
             <div class="my-4">
-              <div class="prose mb-4" v-html="show.summary"></div>
+              <div class="prose mb-4" v-html="sanitizedSummary"></div>
               <a
                 :href="show.url"
                 target="_blank"
