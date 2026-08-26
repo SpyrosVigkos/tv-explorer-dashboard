@@ -8,7 +8,7 @@ import ShowDetails from "../components/ShowDetails.vue";
 import ShowsExplorerContainer from "../components/Containers/ShowsExplorerContainer.vue";
 
 const route = useRoute();
-const showId = parseInt(route.params.id as string);
+const showId = parseInt(route.params.id as string, 10);
 const { show, isLoading } = useShowDetails(showId);
 const { errorMessage, showErrorDialog, clearError } = useErrorHandling();
 </script>

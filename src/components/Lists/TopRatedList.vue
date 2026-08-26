@@ -17,11 +17,11 @@ const { displayedShows, numberOfTopShows, loading } = useSortedShowsByRating();
           Top Rated Shows
         </h2>
         <input
-          type="number"
           id="top-shows-input"
+          v-model.number="numberOfTopShows"
+          type="number"
           min="1"
           class="max-w-24 p-2 border rounded"
-          v-model.number="numberOfTopShows"
         />
         <label
           for="top-shows-input"

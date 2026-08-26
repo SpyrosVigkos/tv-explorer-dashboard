@@ -25,8 +25,8 @@ const sanitizedSummary = computed(() => sanitizeSummary(props.show.summary));
           <div>
             <h1 class="text-3xl font-bold mb-2">{{ show.name }}</h1>
             <button
-              @click="toggleWatchList(show)"
               class="inline-block bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-700 transition-colors"
+              @click="toggleWatchList(show)"
             >
               {{
                 isInWatchList(show)
@@ -39,14 +39,15 @@ const sanitizedSummary = computed(() => sanitizeSummary(props.show.summary));
             </p>
             <div class="my-4">
               <span
-                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
                 v-for="genre in show.genres"
                 :key="genre"
+                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
               >
                 {{ genre }}
               </span>
             </div>
             <div class="my-4">
+              <!-- eslint-disable-next-line vue/no-v-html -- sanitized above via sanitizeSummary -->
               <div class="prose mb-4" v-html="sanitizedSummary"></div>
               <a
                 :href="show.url"

@@ -12,7 +12,7 @@ export function useGenres() {
     try {
       loading.value = true;
       const shows: TvShow[] = await getAllShows();
-      const allGenres = shows.flatMap((show: any) => show.genres);
+      const allGenres = shows.flatMap((show) => show.genres);
       genres.value = Array.from(new Set(allGenres));
     } catch (e) {
       setError((e as Error).message);

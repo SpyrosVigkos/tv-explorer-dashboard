@@ -29,7 +29,7 @@ const { errorMessage, showErrorDialog, clearError } = useErrorHandling();
       <TopRatedList />
     </HighLightContainer>
     <ShowsExplorerContainer>
-      <GenreTvShowList :genreTvShowLists="organizedShowsByGenre" />
+      <GenreTvShowList :genre-tv-show-lists="organizedShowsByGenre" />
     </ShowsExplorerContainer>
   </div>
 </template>

@@ -1,7 +1,7 @@
 import cilentTvMazeApi from "../apiClient/cilentTvMazeApi";
 
 export const getAllShows = async () => {
-  const { data: shows } = await cilentTvMazeApi.get(`/shows`);
+  const { data: shows } = await cilentTvMazeApi.get("/shows");
   return shows;
 };
 

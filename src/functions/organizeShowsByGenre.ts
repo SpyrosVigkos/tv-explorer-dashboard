@@ -31,7 +31,7 @@ export function organizeShowsByGenre(
   const genreTvShowLists: Array<GenreTvShowList> = Object.keys(
     genreShowMap,
   ).map((genre) => ({
-    genre: genre,
+    genre,
     tvShows: sortShowsByRating(genreShowMap[genre]),
   }));
 

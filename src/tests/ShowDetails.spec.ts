@@ -74,7 +74,7 @@ describe("ShowDetails", () => {
         show: {
           ...mockShow,
           summary:
-            '<p>Safe text.</p><script>window.pwned = true;<\/script>' +
+            "<p>Safe text.</p><script>window.pwned = true;</script>" +
             '<img src="x" onerror="window.pwned = true" />',
         },
       },
